@@ -1,0 +1,121 @@
+<svg id="head" width="150" height="450">
+    <rect id="headr" width="400" height="200" style="fill:rgb(255, 160, 65)" />
+</svg>
+
+<svg id="mouth" width="500" height="400" style="top: 175px">
+    <rect id="mouthr" width="70" height="20" style="fill:rgb(198, 66, 0, 0.763)" />
+</svg>
+
+<svg id="nose" width="500" height="400" style="top: 150px">
+    <rect id="noser" width="25" height="25" style="fill:rgb(168, 93, 18)" />
+</svg>
+
+<svg id="eye11" width="25" height="400" style="top: 125px;">
+    <rect id="eye11r" width="25" height="20 " style="fill:rgb(255, 255, 255)" />
+</svg>
+<svg id="eye21" width="25" height="400" style="top: 125px;">
+    <rect id="eye21r" width="25" height="20" style="fill:rgb(5, 169, 38)" />
+</svg>
+
+<svg id="eye12" width="25" height="400" style="top: 125px;">
+    <rect id="eye12r" width="25" height="20" style="fill:rgb(255, 255, 255)" />
+</svg>
+<svg id="eye22" width="25" height="400" style="top: 125px;">
+    <rect id="eye22r" width="25" height="20" style="fill:rgb(5, 169, 38)" />
+</svg>
+
+<svg id="eyebrow" width="500" height="400" style="top: 105px">
+    <rect id="eyebrowr" width="120" height="20" style="fill:rgb(108, 58, 0)" />
+</svg>
+
+<style>
+    #head{
+        position: absolute;
+        left: 10px;
+    }
+    #mouth{
+        position: absolute;
+        left: 50px;
+    }
+    #nose{
+        position: absolute;
+        top: 150px;
+        left: 72.5px;
+        fill:rgb(168, 93, 18);
+    }
+    #eye11{
+        position: absolute;
+        top: 125px;
+        left: 25px;
+    }
+    #eye21{
+        position: absolute;
+        top: 125px;
+        left: 50px;
+    }
+    #eye12{
+        position: absolute;
+        top: 125px;
+        left: 120px;
+    }
+    #eye22{
+        position: absolute;
+        top: 125px;
+        left: 95px;
+    }
+
+    #eyebrow{
+        position: absolute;
+        top: 105px;
+        left: 25px;
+    }
+
+</style>
+
+<script>
+
+    function createRGB(c1, c2, c3){
+        return "rgb(" + String(c1) + "," + String(c2) + "," + String(c3) + ")"
+    }
+
+    noser = document.getElementById("noser")
+    nose = document.getElementById("nose")
+    mouth = document.getElementById("mouth")
+    headr = document.getElementById("headr")
+    eye11 = document.getElementById("eye11")
+    eye21 = document.getElementById("eye21")
+    eye12 = document.getElementById("eye12")
+    eye22 = document.getElementById("eye22")
+    eyebrow = document.getElementById("eyebrow")
+
+    a = -1*Math.random()*50 
+    headr.height.baseVal.value += a
+    mouth.style.top = String(parseInt(mouth.style.top, 10) + a) + "px"
+    nose.style.top = String(parseInt(nose.style.top, 10) + a) + "px"
+    eye11.style.top = String(parseInt(eye11.style.top, 10) + a) + "px"
+    eye21.style.top = String(parseInt(eye21.style.top, 10) + a) + "px"
+    eye12.style.top = String(parseInt(eye12.style.top, 10) + a) + "px"
+    eye22.style.top = String(parseInt(eye22.style.top, 10) + a) + "px"
+    eyebrow.style.top = String(parseInt(eyebrow.style.top, 10) + a) + "px"
+    noser.height.baseVal.value += Math.random() * 10 + Math.random() * 20 + Math.random() * 20    
+
+    eyecolor = createRGB(Math.random()*255,Math.random()*255,Math.random()*255)
+    document.getElementById("eye21r").style.fill = eyecolor
+    document.getElementById("eye22r").style.fill = eyecolor
+
+    mcolor = Math.random() * (255-128) + 128
+    skincolor = createRGB(245, mcolor, mcolor-95)
+    console.log(skincolor)
+    document.getElementById("headr").style.fill = skincolor
+
+    i = 0
+    function timer(){
+        console.log("A")
+        i++
+        if (i < 2){
+            setTimeout(timer, 1000)
+        }
+        else{location.reload()}
+    }
+    timer()
+</script>   
